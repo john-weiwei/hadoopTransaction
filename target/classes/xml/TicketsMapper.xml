@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.allen.mapper.TicketsMapper">
+  <resultMap id="BaseResultMap" type="com.cn.allen.entity.Tickets">
+    <id column="ticketId" jdbcType="INTEGER" property="ticketid" />
+    <result column="ticketCount" jdbcType="INTEGER" property="ticketcount" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="gmt_create" jdbcType="TIMESTAMP" property="gmtCreate" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tickets
+    where ticketId = #{ticketid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cn.allen.entity.Tickets">
+    insert into tickets (ticketId, ticketCount, version, 
+      gmt_create)
+    values (#{ticketid,jdbcType=INTEGER}, #{ticketcount,jdbcType=INTEGER}, #{version,jdbcType=INTEGER}, 
+      #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cn.allen.entity.Tickets">
+    update tickets
+    set ticketCount = #{ticketcount,jdbcType=INTEGER},
+      version = #{version,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where ticketId = #{ticketid,jdbcType=INTEGER}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select ticketId, ticketCount, version, gmt_create
+    from tickets
+    where ticketId = #{ticketid,jdbcType=INTEGER}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ticketId, ticketCount, version, gmt_create
+    from tickets
+  </select>
+
+</mapper>

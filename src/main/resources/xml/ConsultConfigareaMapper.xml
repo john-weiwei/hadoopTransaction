@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.allen.mapper.ConsultConfigareaMapper">
+  <resultMap id="BaseResultMap" type="com.cn.allen.entity.ConsultConfigarea">
+    <id column="areaCode" jdbcType="VARCHAR" property="areacode" />
+    <result column="areaName" jdbcType="VARCHAR" property="areaname" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from consult_configarea
+    where areaCode = #{areacode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.cn.allen.entity.ConsultConfigarea">
+    insert into consult_configarea (areaCode, areaName, state
+      )
+    values (#{areacode,jdbcType=VARCHAR}, #{areaname,jdbcType=VARCHAR}, #{state,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.cn.allen.entity.ConsultConfigarea">
+    update consult_configarea
+    set areaName = #{areaname,jdbcType=VARCHAR},
+      state = #{state,jdbcType=INTEGER}
+    where areaCode = #{areacode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select areaCode, areaName, state
+    from consult_configarea
+    where areaCode = #{areacode,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select areaCode, areaName, state
+    from consult_configarea
+  </select>
+</mapper>
