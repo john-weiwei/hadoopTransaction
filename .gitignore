@@ -1,6 +1,11 @@
 .idea/*
 target/*
+*/target/*
 *.iml
+
+*.lck
+tx-logs/*.lck
+*/tx-logs/*.lck
 # Compiled class file
 *.class
 

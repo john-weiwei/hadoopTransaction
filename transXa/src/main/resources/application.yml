@@ -1,0 +1,26 @@
+server:
+  port: 8091
+
+#配置数据库连接
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/enjoy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: unitimes
+
+  jta:
+    log-dir: tx-logs #事务日志保存目录
+    transaction-manager-id: txManager #事务唯一id，配置多个事务时要确保每个事务id都是唯一的
+
+app:
+  datasource:
+    first:
+      url: jdbc:mysql://localhost:3306/enjoy?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: unitimes
+    second:
+      url: jdbc:mysql://localhost:3306/enjoy2?useUnicode=true&characterEncoding=utf8&allowMultiQueries=true&useSSL=false
+      username: root
+      password: unitimes
+
