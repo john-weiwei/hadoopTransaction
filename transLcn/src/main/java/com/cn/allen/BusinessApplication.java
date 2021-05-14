@@ -5,12 +5,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @Author:ZhangWeiWei
- * @Date:2021/5/13
- * @Description: XA 分布式事务
+ * @Date:2021/5/14
+ * @Description: lcn 分布式事务
+ * 业务模块
  */
 @SpringBootApplication
-public class TransXa {
+public class BusinessApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TransXa.class,args);
+        SpringApplication.run(BusinessApplication.class,args);
     }
 }
